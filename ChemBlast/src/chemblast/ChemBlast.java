@@ -133,7 +133,7 @@ public class ChemBlast {
         /*
          Optimise parameters for chem search
          */
-        int wordLength = 11;
+        int wordLength = 15;//11 is default
         int scoreCutoff = 25;
         int match = 2;
         int mismatch = -2;
