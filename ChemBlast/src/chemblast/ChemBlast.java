@@ -99,6 +99,8 @@ public class ChemBlast {
                     System.out.println("INFO: Index file found " + indexfile.getAbsolutePath());
                     System.out.println("INFO: Formatted DB found " + formatDB.getAbsolutePath());
                 }
+
+                System.out.println("INFO: Reporting top " + topN + " hits.");
                 /*
                  Perform BLAST search
                  */
