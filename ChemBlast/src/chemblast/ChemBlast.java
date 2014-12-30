@@ -123,7 +123,11 @@ public class ChemBlast {
 
         FingerprintDatabase fpDB;
         fpDB = new FingerprintDatabase(formatDB, indexfile);
-        System.out.println("INFO: Number of FP index: " + fpDB.getFingerprintCount());
+        long fingerprintCount = fpDB.getFingerprintCount();
+        if (fingerprintCount > 0) {
+            String format = String.format("%.2fM", ((float) fingerprintCount / 1000000.0));
+            System.out.println("INFO: Number of FP index: " + format);
+        }
         /*
          Optimise parameters for chem search
          */
