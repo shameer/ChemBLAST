@@ -221,8 +221,11 @@ public class ChemBlast {
             File indexfile = new File(databasefile.getParentFile(), fileName + ".idx");
             File formatDB = new File(databasefile.getParentFile(), fileName + ".fmt");
             String numberOfSeq = "-1";
+            long t1 = System.currentTimeMillis();
             FingerprintDatabaseGenerator fingerprintDatabaseGenerator
                     = new FingerprintDatabaseGenerator(databasefile, indexfile, formatDB, numberOfSeq);
+            long t2 = (System.currentTimeMillis());
+            System.out.printf("Running Time: %.2f sec.", ((float) (t2 - t1) / (float) 1000));
             System.out.println("INFO: Index file created " + indexfile.getAbsolutePath());
             System.out.println("INFO: DB formatted " + formatDB.getAbsolutePath());
             System.out.println("INFO: Done");
