@@ -100,7 +100,7 @@ public class ChemBlast {
                     System.out.println("INFO: Formatted DB found " + formatDB.getAbsolutePath());
                 }
 
-                System.out.println("INFO: Reporting top " + topN + " hits.");
+                System.out.println("INFO: Reporting top " + topN + " hits for " + querySMI);
                 /*
                  Perform BLAST search
                  */
