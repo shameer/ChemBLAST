@@ -86,8 +86,8 @@ public class ChemBlast {
             } else {
                 System.out.println("INFO: The DB name is " + databasefile.getAbsolutePath());
                 String fileName = databasefile.getName().split("\\.")[0];
-                File indexfile = new File(databasefile.getParentFile(), fileName + ".index");
-                File formatDB = new File(databasefile.getParentFile(), fileName + ".format");
+                File indexfile = new File(databasefile.getParentFile(), fileName + ".idx");
+                File formatDB = new File(databasefile.getParentFile(), fileName + ".fmt");
                 if (!formatDB.exists() || !indexfile.exists()) {
                     chemBlast.formatDB(databasefile);
                 } else {
@@ -208,8 +208,8 @@ public class ChemBlast {
         System.out.println("INFO: Formatting input database....");
         try {
             String fileName = databasefile.getName().split("\\.")[0];
-            File indexfile = new File(databasefile.getParentFile(), fileName + ".index");
-            File formatDB = new File(databasefile.getParentFile(), fileName + ".format");
+            File indexfile = new File(databasefile.getParentFile(), fileName + ".idx");
+            File formatDB = new File(databasefile.getParentFile(), fileName + ".fmt");
             String numberOfSeq = "-1";
             FingerprintDatabaseGenerator fingerprintDatabaseGenerator
                     = new FingerprintDatabaseGenerator(databasefile, indexfile, formatDB, numberOfSeq);
