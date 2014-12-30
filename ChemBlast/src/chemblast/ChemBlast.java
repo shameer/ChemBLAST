@@ -158,8 +158,8 @@ public class ChemBlast {
                 container.add(alignmentContainer);
             }
         }
-        long t2 = System.currentTimeMillis();
-        System.out.printf("Running Time: %d msec%n", t2 - t1);
+        long t2 = (System.currentTimeMillis());
+        System.out.printf("Running Time: %.2f sec, %d hits found.", ((float) (t2 - t1) / (float) 1000), container.size());
         fpDB.close();
 
         /*
