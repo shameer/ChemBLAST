@@ -160,6 +160,7 @@ public class ChemBlast {
         }
         long t2 = (System.currentTimeMillis());
         System.out.printf("Running Time: %.2f sec, %d hits found.", ((float) (t2 - t1) / (float) 1000), container.size());
+        System.out.println("");
         fpDB.close();
 
         /*
@@ -226,7 +227,8 @@ public class ChemBlast {
                     = new FingerprintDatabaseGenerator(databasefile, indexfile, formatDB, numberOfSeq);
             long t2 = (System.currentTimeMillis());
             System.out.printf("Running Time: %.2f sec.", ((float) (t2 - t1) / (float) 1000));
-            System.out.println("INFO: Index file created " + indexfile.getAbsolutePath());
+            System.out.println("");
+            System.out.println("\nINFO: Index file created " + indexfile.getAbsolutePath());
             System.out.println("INFO: DB formatted " + formatDB.getAbsolutePath());
             System.out.println("INFO: Done");
         } catch (IOException ex) {
