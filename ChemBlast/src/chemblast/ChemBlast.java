@@ -71,7 +71,7 @@ public class ChemBlast {
                 int smiIndex = list.indexOf("-querySMI") + 1;
                 querySMI = list.get(smiIndex);
                 if (list.contains("-top")) {
-                    int topHitIndex = list.indexOf("-querySMI") + 1;
+                    int topHitIndex = list.indexOf("-top") + 1;
                     topN = Integer.parseInt(list.get(topHitIndex).trim());
                 }
             } else {
