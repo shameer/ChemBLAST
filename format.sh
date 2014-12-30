@@ -1,4 +1,4 @@
 # Usage
 #sh format.sh data/database.txt
 #
-java -jar ChemBlast/dist/ChemBlast.jar -formatDB -DB $1
+java -jar bin/ChemBlast.jar -formatDB -DB $1
