@@ -63,12 +63,17 @@ public class ChemBlast {
                 printHelp();
                 System.exit(1);
             }
-        } else if (list.contains("-searchDB") && args.length == 4) {
+        } else if (list.contains("-searchDB") && (args.length == 4 || args.length == 6)) {
             int index = list.indexOf("-searchDB") + 1;
             String querySMI = null;
+            int topN = 10;
             if (list.contains("-querySMI")) {
                 int smiIndex = list.indexOf("-querySMI") + 1;
                 querySMI = list.get(smiIndex);
+                if (list.contains("-top")) {
+                    int topHitIndex = list.indexOf("-querySMI") + 1;
+                    topN = Integer.parseInt(list.get(topHitIndex).trim());
+                }
             } else {
                 printHelp();
                 System.err.println("WARNING: -querySMI option missing! ");
@@ -98,7 +103,7 @@ public class ChemBlast {
                  Perform BLAST search
                  */
                 try {
-                    chemBlast.search(querySMI, indexfile, formatDB);
+                    chemBlast.search(querySMI, indexfile, formatDB, topN);
                 } catch (InvalidSmilesException | IOException ex) {
                     Logger.getLogger(ChemBlast.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -109,10 +114,9 @@ public class ChemBlast {
         }
     }
 
-    private void search(String querySmile, File indexfile, File formatDB)
+    private void search(String querySmile, File indexfile, File formatDB, int top_hits)
             throws InvalidSmilesException, IOException {
         System.out.println("INFO: Searching DB...");
-        int top_hits = 10;
         IAtomContainer parseSmiles = smilesParser.parseSmiles(querySmile);
         FingerprintSequence query = Mol2Sequence.convertMol2Sequence("Query", parseSmiles);
         long t1 = System.currentTimeMillis();
