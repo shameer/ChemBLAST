@@ -120,7 +120,19 @@ public class ChemBlast {
         FingerprintDatabase fpDB;
         fpDB = new FingerprintDatabase(formatDB, indexfile);
         System.out.println("INFO: Number of FP index: " + fpDB.getFingerprintCount());
-        BLAST aligner = new BLASTFP(fpDB.getFingerprintCount());
+        /*
+         Optimise parameters for chem search
+         */
+        int wordLength = 11;
+        int scoreCutoff = 25;
+        int match = 2;
+        int mismatch = -2;
+        double eCutoff = 10;
+        double K = 0.182;
+        double LAM = 0.192;	//WU-BLAST default scores for ungapped nucleotide alignment
+        long dbLength = fpDB.getFingerprintCount();
+
+        BLAST aligner = new BLASTFP(wordLength, scoreCutoff, match, mismatch, eCutoff, dbLength, K, LAM);
 
         List<ResultContainer> container = new ArrayList<>();
         float percentage = 1.0f;
