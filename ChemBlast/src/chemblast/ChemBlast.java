@@ -195,7 +195,7 @@ public class ChemBlast {
                     + alignmentContainer.getPercentagePositives()
                     + "%");
             //alignmentContainer.printDetails(System.out);
-            if (i == top_hits) {
+            if (i == (top_hits-1)) {
                 break;
             }
         }
